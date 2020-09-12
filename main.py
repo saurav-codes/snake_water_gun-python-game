@@ -1,7 +1,10 @@
 # ================ SNAKE - WATER - GUN ============================
 # snake water gun
 import random
+import time
 
+
+initial_time = time.time()
 
 pc_choice_rand = ["snake","water","gun"]
 def gamer_choose_snake():
@@ -9,6 +12,7 @@ def gamer_choose_snake():
     global comp_score
     print("you had choosed Snake 🐍")
     print("Please wait ! computer is thinking..........!")
+    time.sleep(1)
     comp_choice = random.choice(pc_choice_rand)
     if comp_choice == "snake":
         print("DRAW ! Snake can't fight with Snake")
@@ -33,6 +37,7 @@ def gamer_choose_water():
     global comp_score
     print("you had choosed Water 🌊")
     print("Please wait ! computer is thinking..........!")
+    time.sleep(1)
     comp_choice = random.choice(pc_choice_rand)
     if comp_choice == "snake":
         print("YOU LOSE!.. snake drinked the water")
@@ -57,6 +62,7 @@ def gamer_choose_gun():
     global comp_score
     print("you had choosed Gun 🔫")
     print("Please wait ! computer is thinking..........!")
+    time.sleep(1)
     comp_choice = random.choice(pc_choice_rand)
     if comp_choice == "snake":
         print("YOU WIN ! you killed computer's snake by Gun ")
@@ -97,14 +103,22 @@ while usr_choice != "e":
         if ex_conf == "n":
             continue
         else:
-            print("\n🐻__Thanks for your time__🐻\nexiting the game..⏱\n\nYour score 🙌 is :",score,"      computer score 🙌 is :",comp_score)
+            print("\n🐻__Thanks for your time__🐻")
+            time.sleep(1)
+            print("\nYour score 🙌 is :",score,"      computer score 🙌 is :",comp_score)
             if score<comp_score:
                 print("The computer defeated you by ",comp_score - score,"points")
             else:
                 print("You defeated the computer by",score - comp_score,"points")
+            sec_initial = time.time()
+            print("You have played this game🐻 for..",sec_initial-initial_time,"seconds⏱")
+            print("\nexiting the game..⏱\n")
+            time.sleep(1)
             exit()
     else:
         print("Please choose between the provided options only 😕")
 
 else:
     print("\n🐻__Thanks for your time__🐻\n\nYour score 🙌 is :",score,"\nexiting the game.....⏱\n")
+    sec_initial = time.time()
+    print("You have played this game🐻 for..",sec_initial-initial_time,"seconds⏱")
